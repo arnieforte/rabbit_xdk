@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=edge" /> 
+
+    <!-- For online versions of your game -->
+    <title>Rubba Rabbit by @McFunkypants</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <!-- the line below is required for access to the appMobi JS library -->
+    <script type="text/javascript" charset="utf-8" src="http://localhost:58888/_appMobi/appmobi.js"></script>
+    
+    <script type="text/javascript" language="javascript">
+            // This event handler is fired once the AppMobi libraries are ready
+            function onDeviceReady() {
+                //use AppMobi viewport to handle device resolution differences if you want
+                //AppMobi.display.useViewport(768,1024);
+    
+                var iPortraitWidth=768;
+                var iLandscapeWidth=1024;
+                AppMobi.display.useViewport(iPortraitWidth,iLandscapeWidth);
+        		AppMobi.device.setRotateOrientation("landscape");
+
+                //hide splash screen now that our app is ready to run
+                AppMobi.device.hideSplashScreen();
+            	
+    			document.getElementsByTagName('body')[0].style.visibility="visible";
+            }
+    
+            //initial event handler to detect when appMobi is ready to roll
+            document.addEventListener("appMobi.device.ready",onDeviceReady,false);
+    </script> 
+
+
+    <!-- framework references -->
+    <script src="js/default.js" type="text/javascript"></script>
+    <script src="js/jaws.js" type="text/javascript"></script>
+    <script src="js/howler.js" type="text/javascript"></script>
+    <script src="js/tween.js" type="text/javascript"></script>
+
+    <!-- game-specific references -->
+    <link href="app-css/default.css" rel="stylesheet" />
+    <script src="game-media/level1.js" type="text/javascript"></script>
+    <script src="game-media/level2.js" type="text/javascript"></script>
+    <script src="game-media/level3.js" type="text/javascript"></script>
+
+    <!-- game starts here! -->
+    <script src="js/ludus.js" type="text/javascript"></script>  
+</head>
+<body>
+<script type="text/javascript">
+    // Create a canvas
+    var canvas = document.createElement("canvas");
+    // liquid layout: stretch to fill
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    // the id the game engine looks for
+    canvas.id = 'canvas';
+    // add the canvas element to the html document
+    document.body.appendChild(canvas);
+</script>
+
+<!-- fps and debug information goes here -->
+<span id='info'></span>
+
+<div id='buttonleft'></div>
+<div id='buttonright'></div>
+<div id='buttonpause'></div>
+<!-- <div id='buttondown'></div> -->
+<div id='buttonup'></div>
+
+</body>
+</html>
